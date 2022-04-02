@@ -1,5 +1,6 @@
 package com.sre.exercise.service;
 
+import com.sre.exercise.entity.HealthDTO;
 import com.sre.exercise.entity.User;
 import com.sre.exercise.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -51,4 +52,6 @@ public class UserServiceImpl implements UserService{
         User userToBeDeleted = userRepository.findById(id).orElse(null);
         return "User deleted successfully ";
     }
+
+
 }
