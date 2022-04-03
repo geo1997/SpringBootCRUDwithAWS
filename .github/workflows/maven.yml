@@ -26,7 +26,7 @@ jobs:
       run: mvn clean install
 
     - name: Build & push Docker image
-      uses: georgesilva97/exams-portal
+      uses: mr-smithers-excellent/docker-build-push@v5
       with:
         image: georgesilva97/exams-portal
         tags: 1.0.1
