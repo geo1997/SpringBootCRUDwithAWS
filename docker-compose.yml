@@ -1,0 +1,9 @@
+version: '3.2'
+
+services:
+  exam-portal-container:
+    image: georgesilva97/exams-portal
+    volumes:
+      - /data/exam-portal-container
+    ports:
+      - "3000:3000"
