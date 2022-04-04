@@ -1,13 +1,14 @@
 package com.sre.exercise.service;
 
-import com.sre.exercise.entity.HealthDTO;
-import com.sre.exercise.entity.User;
+
+import com.sre.exercise.entity.UserDTO;
 import com.sre.exercise.repository.UserRepository;
+import org.apache.velocity.exception.ResourceNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
+
 
 @Service
 public class UserServiceImpl implements UserService{
@@ -21,35 +22,41 @@ public class UserServiceImpl implements UserService{
     }
 
     @Override
-    public User createUser(User user) {
+    public UserDTO createUser(UserDTO userDTO) {
 
-        return userRepository.save(user);
+        if (userDTO == null ) {
+            throw new ResourceNotFoundException("Empty User");
+        } else {
+            return  userRepository.save(userDTO);
+        }
+
     }
 
     @Override
-    public User getUserById(int id) {
+    public UserDTO getUserById(int id) {
         return userRepository.findById(id).orElse(null);
     }
 
     @Override
-    public List<User> getUsers() {
+    public List<UserDTO> getUsers() {
         return userRepository.findAll();
     }
 
     @Override
-    public User updateUser(User user) {
-        User userToBeUpdated = userRepository.findById(user.getId()).orElse(null);
-        userToBeUpdated.setFullName(user.getFullName());
-        userToBeUpdated.setAddress(user.getAddress());
-        userToBeUpdated.setEmail(user.getEmail());
-        userToBeUpdated.setPhoneNumber(user.getPhoneNumber());
-        userToBeUpdated.setNic(user.getNic());
-        return userRepository.save(userToBeUpdated);
+    public UserDTO updateUser(UserDTO userDTO) {
+        UserDTO userDTOToBeUpdated = userRepository.findById(userDTO.getId()).orElse(null);
+        userDTOToBeUpdated.setFullName(userDTO.getFullName());
+        userDTOToBeUpdated.setAddress(userDTO.getAddress());
+        userDTOToBeUpdated.setEmail(userDTO.getEmail());
+        userDTOToBeUpdated.setPhoneNumber(userDTO.getPhoneNumber());
+        userDTOToBeUpdated.setNic(userDTO.getNic());
+        return userRepository.save(userDTOToBeUpdated);
     }
 
     @Override
     public String deleteUserById(int id) {
-        User userToBeDeleted = userRepository.findById(id).orElse(null);
+        UserDTO userDTOToBeDeleted = userRepository.findById(id).orElse(null);
+        userRepository.delete(userDTOToBeDeleted);
         return "User deleted successfully ";
     }
 

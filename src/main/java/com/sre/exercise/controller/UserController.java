@@ -1,8 +1,7 @@
 package com.sre.exercise.controller;
 
-import com.sre.exercise.entity.User;
+import com.sre.exercise.entity.UserDTO;
 import com.sre.exercise.service.UserService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -18,24 +17,24 @@ public class UserController {
     }
 
     @PostMapping("/user/add")
-    public User addUser(@RequestBody User user){
-        return userService.createUser(user);
+    public UserDTO addUser(@RequestBody UserDTO userDTO){
+        return userService.createUser(userDTO);
     }
 
 
     @GetMapping("/user/{id}")
-    public User getUserById(@PathVariable final int id){
+    public UserDTO getUserById(@PathVariable final int id){
         return userService.getUserById(id);
     }
 
     @GetMapping("/users")
-    public List<User> getAllUsers(){
+    public List<UserDTO> getAllUsers(){
         return userService.getUsers();
     }
 
     @PutMapping("/updateUser")
-    public User updateUser(@RequestBody User user){
-        return userService.updateUser(user);
+    public UserDTO updateUser(@RequestBody UserDTO userDTO){
+        return userService.updateUser(userDTO);
     }
 
 

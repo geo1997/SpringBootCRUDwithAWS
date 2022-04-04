@@ -1,7 +1,6 @@
 package com.sre.exercise.service;
 
-import com.sre.exercise.entity.User;
-import org.springframework.stereotype.Service;
+import com.sre.exercise.entity.UserDTO;
 
 import java.util.List;
 
@@ -11,19 +10,19 @@ public interface UserService {
 
     /**
      *
-     * @param user
+     * @param userDTO
      * @return
      */
-    User createUser(final User user);
+    UserDTO createUser(final UserDTO userDTO);
 
     /**
      *
      * @param id
      * @return
      */
-    User getUserById(final int id);
-    List<User> getUsers();
-    User updateUser(User user);
+    UserDTO getUserById(final int id);
+    List<UserDTO> getUsers();
+    UserDTO updateUser(UserDTO userDTO);
     String deleteUserById(final int id);
 
 }
