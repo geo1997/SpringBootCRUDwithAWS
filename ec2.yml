@@ -1,5 +1,8 @@
 AWSTemplateFormatVersion: 2010-09-09
 
+configuration:
+  Capabilities: CAPABILITY_IAM,CAPABILITY_AUTO_EXPAND
+
 
 Parameters :
   AmiId:
@@ -97,7 +100,7 @@ Resources:
               - sts:AssumeRole
       ManagedPolicyArns:
         - arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore
-      Capabilities: CAPABILITY_NAMED_IAM
+
 
 
 
