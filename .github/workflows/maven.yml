@@ -50,5 +50,6 @@ jobs:
         name: ec2-exam-portal-stack
         template: ec2.yml
         no-fail-on-empty-changeset: "1"
+        capabilities: CAPABILITY_NAMED_IAM
 
 
