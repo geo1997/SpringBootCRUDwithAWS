@@ -1,5 +1,5 @@
 AWSTemplateFormatVersion: 2010-09-09
-Capabilities: CAPABILITY_NAMED_IAM
+
 
 Parameters :
   AmiId:
@@ -97,6 +97,7 @@ Resources:
               - sts:AssumeRole
       ManagedPolicyArns:
         - arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore
+      Capabilities: CAPABILITY_NAMED_IAM
 
 
 
