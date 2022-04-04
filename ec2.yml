@@ -1,7 +1,5 @@
 AWSTemplateFormatVersion: 2010-09-09
-
-Configuration:
-  Capabilities: CAPABILITY_NAMED_IAM
+Capabilities: CAPABILITY_NAMED_IAM
 
 Parameters :
   AmiId:
