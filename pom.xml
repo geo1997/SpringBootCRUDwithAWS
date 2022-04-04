@@ -9,7 +9,7 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.sre.exercise</groupId>
-    <artifactId>user.registration</artifactId>
+    <artifactId>userDTO.registration</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>Online Exam Registration - SRE Exercise</name>
     <description>Demo project for Spring Boot</description>
@@ -56,6 +56,11 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.velocity</groupId>
+            <artifactId>velocity</artifactId>
+            <version>1.7</version>
         </dependency>
     </dependencies>
 
