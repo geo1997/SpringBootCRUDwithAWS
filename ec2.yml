@@ -1,9 +1,5 @@
 AWSTemplateFormatVersion: 2010-09-09
 
-Configuration:
-  Capabilities: CAPABILITY_IAM,CAPABILITY_AUTO_EXPAND
-
-
 Parameters :
   AmiId:
     Type : String
