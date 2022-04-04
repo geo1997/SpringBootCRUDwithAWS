@@ -2,7 +2,7 @@ version: '3.2'
 
 services:
   exam-portal-container:
-    image: georgesilva97/exams-portal:1.0.2
+    image: georgesilva97/exams-portal:1.0.3
     volumes:
       - /data/exam-portal-container
     ports:
