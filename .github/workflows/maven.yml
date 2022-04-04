@@ -48,7 +48,7 @@ jobs:
       uses: aws-actions/aws-cloudformation-github-deploy@v1
       with:
         name: ec2-exam-portal-stack
-        template: ec2.yaml
+        template: ec2.yml
         no-fail-on-empty-changeset: "1"
 
 
