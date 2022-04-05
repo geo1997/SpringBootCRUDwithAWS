@@ -1,7 +1,10 @@
 package com.sre.exercise.repository;
 
-import com.sre.exercise.entity.UserDTO;
+import com.sre.exercise.entity.UserEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface UserRepository extends JpaRepository<UserDTO, Integer> {
+import java.util.Optional;
+
+public interface UserRepository extends JpaRepository<UserEntity, Long> {
+    UserEntity findByEmail(String email);
 }

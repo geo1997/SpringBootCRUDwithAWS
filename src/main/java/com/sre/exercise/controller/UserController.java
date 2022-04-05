@@ -1,9 +1,13 @@
 package com.sre.exercise.controller;
 
-import com.sre.exercise.entity.UserDTO;
+import com.sre.exercise.entity.UserData;
+import com.sre.exercise.entity.UserEntity;
+import com.sre.exercise.exception.UserAlreadyExistException;
+import com.sre.exercise.exception.UserDoesNotExist;
 import com.sre.exercise.service.UserService;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -17,29 +21,44 @@ public class UserController {
     }
 
     @PostMapping("/user/add")
-    public UserDTO addUser(@RequestBody UserDTO userDTO){
-        return userService.createUser(userDTO);
+    public String addUser(@RequestBody final @Valid UserData userData){
+        try {
+            userService.createUser(userData);
+        }catch (UserAlreadyExistException e){
+            return "An account already exists for this email.";
+        }
+        return "Registration Successful";
     }
 
 
     @GetMapping("/user/{id}")
-    public UserDTO getUserById(@PathVariable final int id){
-        return userService.getUserById(id);
+    public UserEntity getUserById(@PathVariable final long id) throws UserDoesNotExist{
+            return userService.getUserById(id);
     }
 
     @GetMapping("/users")
-    public List<UserDTO> getAllUsers(){
+    public List<UserEntity> getAllUsers(){
         return userService.getUsers();
     }
 
     @PutMapping("/updateUser")
-    public UserDTO updateUser(@RequestBody UserDTO userDTO){
-        return userService.updateUser(userDTO);
+    public String updateUser(@RequestBody final UserData userData){
+        try {
+            userService.updateUser(userData);
+        }catch (UserDoesNotExist e){
+            return "User Does not Exist.";
+        }
+        return "Update Successful";
     }
 
 
     @DeleteMapping("/deleteUser/{id}")
-    public String deleteUser(@PathVariable final int id){
-        return userService.deleteUserById(id);
+    public String deleteUser(@PathVariable final long id){
+
+        try{
+            return  userService.deleteUserById(id);
+        }catch (UserDoesNotExist e){
+            return "User Does not Exist.";
+        }
     }
 }
