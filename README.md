@@ -32,7 +32,7 @@ Simple application which will register users for upcoming online examinations.
 
 ###  Endpoints:
 
-
+  **Amazone EC2 public URL: http://54.172.114.169:3000**
 
 - **GET :  /health** : Retrieve Health Route.
 - **GET : /version** : Retrieve version.
