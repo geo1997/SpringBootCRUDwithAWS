@@ -147,7 +147,7 @@ Resources:
             sudo systemctl start docker
 
             sudo yum install git -y
-            TOKEN=$(aws secretsmanager get-secret-value --region us-east-1 --secret-id github-oauth-token --query SecretString --output text | cut -d: -f2 | tr -d \"})
+            TOKEN=$(aws secretsmanager get-secret-value --region us-east-1 --secret-id github-oauth-token-1 --query SecretString --output text | cut -d: -f2 | tr -d \"})
             git clone https://${TOKEN}:x-oauth-basic@github.com/geo1997/sre_practical_test
             sudo chmod 666 /var/run/docker.sock
             cd sre_practical_test
@@ -155,22 +155,22 @@ Resources:
 
 
 
-  AutoScaleInstance:
-    Type: AWS::AutoScaling::AutoScalingGroup
-    Properties:
-      MinSize: '1'
-      MaxSize: '1'
-      DesiredCapacity: '1'
-      HealthCheckGracePeriod: 300
-      LaunchTemplate:
-        LaunchTemplateId: !Ref TestLaunchTemplate
-        Version: !Ref LaunchTemplateVersionNumber
-      VPCZoneIdentifier:
-        - !Ref publicSubnet1
-      Tags:
-        - Key: Name
-          Value: Exam_Portal_Instance
-          PropagateAtLaunch: 'true'
+#  AutoScaleInstance:
+#    Type: AWS::AutoScaling::AutoScalingGroup
+#    Properties:
+#      MinSize: '1'
+#      MaxSize: '1'
+#      DesiredCapacity: '1'
+#      HealthCheckGracePeriod: 300
+#      LaunchTemplate:
+#        LaunchTemplateId: !Ref TestLaunchTemplate
+#        Version: !Ref LaunchTemplateVersionNumber
+#      VPCZoneIdentifier:
+#        - !Ref publicSubnet1
+#      Tags:
+#        - Key: Name
+#          Value: Exam_Portal_Instance
+#          PropagateAtLaunch: 'true'
 #end instance configs
 Outputs:
   pubPrivateVPCID:
