@@ -155,22 +155,22 @@ Resources:
 
 
 
-#  AutoScaleInstance:
-#    Type: AWS::AutoScaling::AutoScalingGroup
-#    Properties:
-#      MinSize: '1'
-#      MaxSize: '1'
-#      DesiredCapacity: '1'
-#      HealthCheckGracePeriod: 300
-#      LaunchTemplate:
-#        LaunchTemplateId: !Ref TestLaunchTemplate
-#        Version: !Ref LaunchTemplateVersionNumber
-#      VPCZoneIdentifier:
-#        - !Ref publicSubnet1
-#      Tags:
-#        - Key: Name
-#          Value: Exam_Portal_Instance
-#          PropagateAtLaunch: 'true'
+  AutoScaleInstance:
+    Type: AWS::AutoScaling::AutoScalingGroup
+    Properties:
+      MinSize: '1'
+      MaxSize: '1'
+      DesiredCapacity: '1'
+      HealthCheckGracePeriod: 300
+      LaunchTemplate:
+        LaunchTemplateId: !Ref TestLaunchTemplate
+        Version: !Ref LaunchTemplateVersionNumber
+      VPCZoneIdentifier:
+        - !Ref publicSubnet1
+      Tags:
+        - Key: Name
+          Value: Exam_Portal_Instance
+          PropagateAtLaunch: 'true'
 #end instance configs
 Outputs:
   pubPrivateVPCID:
