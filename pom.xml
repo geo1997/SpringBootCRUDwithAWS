@@ -10,7 +10,7 @@
     </parent>
     <groupId>com.sre.exercise</groupId>
     <artifactId>userEntity.registration</artifactId>
-    <version>0.0.-SNAPSHOT</version>
+    <version>0.0.1-SNAPSHOT</version>
     <name>Simple Online Exam Registration - SRE Exercise</name>
     <description>Demo project for Spring Boot</description>
     <properties>
