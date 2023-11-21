@@ -1,3 +1,4 @@
+#Dockerfile commands
 FROM openjdk:11
 
 EXPOSE 3000
