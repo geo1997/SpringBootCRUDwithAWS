@@ -1,5 +1,6 @@
 version: '3.2'
 
+#Docker container
 services:
   exam-portal-container:
     image: georgesilva97/exams-portal:1.0.5
