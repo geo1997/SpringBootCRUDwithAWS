@@ -1,11 +1,11 @@
-# SRE - Practical Exercise
+# Simple SRE - Practical Exercise
 
 ### Use Case :
 Simple application which will register users for upcoming online examinations.
 
 ### Methodology:
 
-1. Task 01:
+
 
 - Implemented a CRUD application using SpringBoot.
 - Port configured to run on 3000.
@@ -18,7 +18,7 @@ Simple application which will register users for upcoming online examinations.
    - JDBC Url :jdbc:h2:mem:examRegister
    - User Name : root
 
-3. Task 02;
+
 
    - Used GIT and GitHub for version controlling.
    -	Configured a ci/cd pipeline using GitHub actions.
@@ -32,7 +32,7 @@ Simple application which will register users for upcoming online examinations.
 
 ###  Endpoints:
 
-  **Amazone EC2 public URL: http://54.172.114.169:3000**
+  **Amazone EC2 public URL: http://{URL}:3000**
 
 - **GET :  /health** : Retrieve Health Route.
 - **GET : /version** : Retrieve version.
